@@ -1,8 +1,15 @@
+import { Pause } from 'lucide-react'
 import React from 'react'
 
-const PauseButton = () => {
+const PauseButton = ({isPlay,setIsPlay,isPlayRef}) => {
+  const Pausing=()=>{
+    setIsPlay(!isPlay)
+    isPlayRef.current=!isPlay
+  }
   return (
-    <div>PauseButton</div>
+    <button onClick={Pausing} className='border border-green-100 px-2 py-1  text-green-100 active:scale-95 hover:bg-green-100 hover:border-0 transition-all duration-300 hover:text-gray-700'>
+    <Pause  size={60}/>
+  </button>
   )
 }
 

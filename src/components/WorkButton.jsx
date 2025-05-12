@@ -1,8 +1,13 @@
 import React from 'react'
 
-const WorkButton = () => {
+const WorkButton = ({setIsWork,setIsPlay,isPlay,isPlayRef}) => {
+  const Working=()=>{
+    setIsWork(true)
+    setIsPlay(!isPlay)
+    isPlayRef.current=!isPlay
+  }
   return (
-    <div>WorkButton</div>
+    <button  onClick={()=>Working()} className='border  border-green-100 px-4 py-2 rounded-3xl text-green-100  focus:border-0 focus:bg-green-100 focus:text-gray-700 '>Work Button</button>
   )
 }
 
