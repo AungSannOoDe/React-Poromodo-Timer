@@ -7,6 +7,7 @@ import PauseButton from "./PauseButton"
 import PlayButton from './PlayButton'
 import SettingsButton from './SettingsButton'
 import useTimerStore from '../Stores/useTimerStore'
+import ChangeLanguage from './ChangeLanguage'
 
 const Timer = () => {
  const{secondLeft,BreaksecondLeft,
@@ -46,6 +47,8 @@ const Timer = () => {
   seconds<10 ?  seconds='0'+seconds :seconds
   return (
    <section>
+   
+   
     <div className='flex justify-center gap-x-4'>
     <WorkButton  setIsWork={setIsWork} isWork={isWork} isPlay={isPlay} setIsPlay={setIsPlay} isPlayRef={isPlayRef} />
     <BreakButton setIsWork={setIsWork} isWork={isWork} isPlay={isPlay} setIsPlay={setIsPlay} isPlayRef={isPlayRef}/>
