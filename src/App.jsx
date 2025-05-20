@@ -18,7 +18,7 @@ function App() {
    <ChangeLanguage  />
       </div>
    <section className='    flex justify-center '>
-      <div className=' lg:mt-30 md:mt-10 mt-4'>
+      <div className=' lg:mt-30 md:mt-10 mt-0'>
       <Timer/>
       </div>
      </section>
