@@ -20,8 +20,6 @@ const AddFloating = () => {
   });
 
   const [isClosing, setIsClosing] = React.useState(false);
-  
-  // Watch form values
   const formValues = watch();
 
   const onSubmit = (data) => {
@@ -41,13 +39,12 @@ const AddFloating = () => {
     isSettings ? handleClose() : setIsSettings(true);
   };
 
-  // Handle increment/decrement for work minutes
   const handleWorkMinutesChange = (newValue) => {
     const validatedValue = Math.min(60, Math.max(1, newValue));
     setFormValue("workMinutes", validatedValue);
   };
 
-  // Handle increment/decrement for break minutes
+  
   const handleBreakMinutesChange = (newValue) => {
     const validatedValue = Math.min(60, Math.max(1, newValue));
     setFormValue("breakMinutes", validatedValue);
@@ -94,12 +91,12 @@ const AddFloating = () => {
                       min: { value: 1, message: "Minimum 1 minute" },
                       max: { value: 60, message: "Maximum 60 minutes" }
                     })}
-                    onChange={(e) => {
-                      const val = parseInt(e.target.value) || 0;
-                      if (val >= 1 && val <= 60) {
-                        handleWorkMinutesChange(val);
-                      }
-                    }}
+                    // onChange={(e) => {
+                    //   const val = parseInt(e.target.value) || 0;
+                    //   if (val >= 1 && val <= 60) {
+                    //     handleWorkMinutesChange(val);
+                    //   }
+                    // }}
                     className="w-full h-10 bg-gray-100 text-center border-y border-gray-300 focus:ring-1 focus:ring-green-500 outline-none appearance-none"
                   />
                   
@@ -138,12 +135,12 @@ const AddFloating = () => {
                       min: { value: 1, message: "Minimum 1 minute" },
                       max: { value: 60, message: "Maximum 60 minutes" }
                     })}
-                    onChange={(e) => {
-                      const val = parseInt(e.target.value) || 0;
-                      if (val >= 1 && val <= 60) {
-                        handleBreakMinutesChange(val);
-                      }
-                    }}
+                    // onChange={(e) => {
+                    //   const val = parseInt(e.target.value) || 0;
+                    //   if (val >= 1 && val <= 60) {
+                    //     handleBreakMinutesChange(val);
+                    //   }
+                    // }}
                     className="w-full h-10 bg-gray-100 text-center border-y border-gray-300 focus:ring-1 focus:ring-green-500 outline-none appearance-none"
                   />
                   

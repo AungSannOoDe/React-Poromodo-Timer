@@ -40,7 +40,6 @@ const Timer = () => {
     return () =>clearInterval(interval)
    },[Information])
    
-   
   return (
    <section>
    

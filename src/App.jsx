@@ -11,7 +11,7 @@ function App() {
   const{isSettings}=useTimerStore();
   return (
    <>
-   <section className='bg-gradient-to-r from-[#141e30] to-[#243b55] opacity-90 w-full h-screen'>
+   <section className='bg-gradient-to-r from-[#141e30] to-[#243b55] opacity-90 w-full h-screen  -z-40 '>
       {isSettings &&  <AddFloating/>}  
    <div className='p-3 grid grid-cols-12'>
    <TimerProfile />
