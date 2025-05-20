@@ -11,7 +11,12 @@ import {create} from "zustand"
       workMinutes:55,
      },
     BreaksecondLeft:0,
-    updateSettings:(data)=>console.log(data),
+    updateSettings:(data)=>set(state=>({
+      Information:{
+        ...state.Information,
+        ...data
+      }
+    })),
     setIsSettings:(value)=>set({isSettings:value}),
     setIsWork:(value)=>set({isWork:value}),
     setIsPlay:(value)=>set({isPlay:value}),
