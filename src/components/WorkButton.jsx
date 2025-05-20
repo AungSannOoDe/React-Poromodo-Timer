@@ -1,6 +1,11 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-const WorkButton = ({setIsWork,setIsPlay,isPlay,isPlayRef}) => {
+import useTimerStore from '../Stores/useTimerStore'
+const WorkButton = ({isPlayRef}) => {
+  const{BreaksecondLeft,
+   setIsPlay,
+    isPlay,setIsWork
+    ,Information}=useTimerStore()
   const {t}=useTranslation()
   const Working=()=>{
     setIsWork(true)

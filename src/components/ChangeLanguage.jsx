@@ -5,13 +5,13 @@ const ChangeLanguage = () => {
     const {  i18n } = useTranslation();
     const [lang,setLang]=useState("en")
     const  ChangeLang=(event)=>{
-        console.log(event.target.value);
      i18n.changeLanguage(event.target.value)
      setLang(event.target.value)
     }
   return (
-    <section className='mt-6'>
-        <FormControl  className='bg-green-100  w-28  lg:w-32 outline-0 ring-0 text-sm'>
+    <section className='mt-6 col-span-3'>
+      <div className='flex justify-center'>
+      <FormControl  className='bg-green-100  w-28  lg:w-32 outline-0 ring-0 text-sm'>
           <InputLabel id="demo-simple-select-label">Language</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -23,6 +23,8 @@ const ChangeLanguage = () => {
             <MenuItem value="my">Myanmar</MenuItem>
           </Select>
         </FormControl>
+      </div>
+        
     </section>
 
   )

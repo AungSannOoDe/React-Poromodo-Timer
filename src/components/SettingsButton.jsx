@@ -1,13 +1,15 @@
 import React from 'react'
 import { Settings } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import useTimerStore from '../Stores/useTimerStore';
+
 const SettingsButton = () => {
-  const{t}=useTranslation()
+ const {isSettings,setIsSettings}=useTimerStore()
+  const handleSettings=()=>{
+    setIsSettings(!isSettings)
+  }
   return (
-   <button className='text-2xl border border-green-100 px-2 py-1  rounded-lg'>
-    <div className='flex justify-center gap-3 text-white '>
-    <Settings size={50} /><p className='font-xl self-center'>{t('Settings')} </p> 
-    </div>
+   <button onClick={handleSettings} className='text-md border border-green-100 px-2 py-1  mt-3 rounded-lg text-green-100'>
+    <Settings size={40} />
    </button>
   )
 }
