@@ -9,6 +9,15 @@ import AddFloating from './components/AddFloating'
 import useTimerStore from './Stores/useTimerStore'
 function App() {
   const{isSettings}=useTimerStore();
+
+//   const audio=new Audio('/ringtones/alarm_sound.mp3')
+//   useEffect(()=>{
+//    setInterval(()=>{
+//       audio.volume=1;
+//       audio.play().catch(e=>console.log("play failed",e))
+//      },2000) 
+//   },[])
+//   console.log(audio.volume);
   return (
    <>
    <section className='bg-gradient-to-r from-[#141e30] to-[#243b55] opacity-90 w-full h-screen  -z-40 '>

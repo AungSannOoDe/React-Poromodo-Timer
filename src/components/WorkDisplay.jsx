@@ -6,9 +6,9 @@ import 'animate.css'
 const WorkDisplay = () => {
   const{secondLeft
     ,Information}=useTimerStore()
-
+ 
   const totalSeconds=()=>Information.workMinutes*60
-   const percentage=()=>Math.round(secondLeft/totalSeconds *100)
+   const percentage=()=>Math.round(secondLeft/totalSeconds() *100)
    const minutes=()=>Math.floor(secondLeft/60);
    const seconds=()=>{
     const seconds=secondLeft%60;

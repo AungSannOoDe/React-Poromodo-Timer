@@ -3,7 +3,19 @@ import useTimerStore from '../../Stores/useTimerStore';
 import { Clock, X, Volume2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 const SettingsSection = ({handleClose}) => {
-    const {  Information, updateSettings } = useTimerStore();
+    const {  Information, updateSettings,ringtones } = useTimerStore();
+   
+    const  handleChange=(e)=>{
+      const selectRingtone=e.target.value;
+        const audio =new Audio(selectRingtone)
+        audio.volume=0.1;
+          audio.play().then(
+            setTimeout(()=>{
+              audio.pause()
+              audio.currentTime=0
+            },6000)
+          ).catch(e=>console.log("play failed",e))
+    }
     const[Break,setBreak]=useState(false)
   const[Work,setWork]=useState(false)
       const { 
@@ -15,13 +27,15 @@ const SettingsSection = ({handleClose}) => {
       } = useForm({
         defaultValues: {
           breakMinutes: Information.breakMinutes,
-          workMinutes: Information.workMinutes
+          workMinutes: Information.workMinutes,
+          songUrl:Information.workAlarm.songUrl,
+          volume:Information.workAlarm.volume,
+          songName:Information.workAlarm.songName,
         }
-      });
+      }); 
       const formValues = watch();
-
       const onSubmit = (data) => {
-        updateSettings(data);
+        updateSettings({breakMinutes:data.breakMinutes, workMinutes:data.workMinutes, workAlarm:{songName:data.songName, songUrl:data.songUrl}});
         handleClose();
       };
     const handleWorkMinutesChange = (newValue) => {
@@ -53,7 +67,6 @@ const SettingsSection = ({handleClose}) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
                 </svg>
               </button>
-                  
               <input
                 type="number"
                 {...register("workMinutes", {
@@ -148,7 +161,16 @@ const SettingsSection = ({handleClose}) => {
         <p className='flex justify-start text-green-100 uppercase gap-1 mt-2 opacity-45'><Volume2 /> Timer</p>
         <div className="flex justify-between">
           <p className='text-3xl text-green-100'>Alarm</p>
-          <p>Alarm</p>
+          <select id="countries" {...register("songUrl",{
+            required: "Ringtone is required"
+          })} onChange={handleChange} className= "w-1/3 text-sm bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          {
+            ringtones.map((ringtone)=>(
+              <option value={ringtone.songurl} selected={formValues.songUrl} >{ringtone.songName}</option>
+            ))
+          }
+</select>
+
         </div>
       </section>
       <div className='flex justify-end me-2'>
@@ -156,9 +178,6 @@ const SettingsSection = ({handleClose}) => {
           Save
         </button>
       </div>
-
-
-
     </form>  
   )
 }

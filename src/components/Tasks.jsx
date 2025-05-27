@@ -1,6 +1,7 @@
 import React from 'react'
 import { Plus } from 'lucide-react'
 const Tasks = () => {
+   
   return (
     <section className='flex gap-1'>
         <input type="text" placeholder='Enter Task...' className='border-b-2  border-green-100 h-10 placeholder:text-green-100 outline-0 border-0 text-green-100' />
